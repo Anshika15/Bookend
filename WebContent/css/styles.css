@@ -12,3 +12,7 @@
 	color:black;
 	border-radius: 10px;
 }
+.div-color{
+	background-image: linear-gradient(to right top, #b37683, #b76e69, #b06b4b, #9e6d2c, #81720f);
+}
+
