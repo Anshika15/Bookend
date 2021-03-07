@@ -1,3 +1,4 @@
+<%@page import="com.jdbc.DbConnection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,6 +11,7 @@
 </head>
 <body>
 	<%@ include file="allComp/navbar.jsp"%>
+	
 	<div class="container-fluid back-img">
 		<br /><br />
 		<div class="text-center">
