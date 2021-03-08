@@ -30,8 +30,29 @@
 					<div class="alert alert-danger" role="alert"><%=msg%></div>
 
 					<%
-						}
 						session.removeAttribute("login-failed");
+						}
+					%>
+
+					<%
+						String withoutlogin = (String) session.getAttribute("Login-error");
+						if (withoutlogin != null) {
+					%>
+					<div class="alert alert-danger" role="alert"><%=withoutlogin%></div>
+					<%
+						session.removeAttribute("Login-error");
+						}
+					%>
+
+
+					<%
+						String logoutmsg = (String) session.getAttribute("logout-msg");
+						if (logoutmsg != null) {
+					%>
+					<div class="alert alert-success" role="alert"><%=logoutmsg%></div>
+					<%
+						session.removeAttribute("logout-msg");
+						}
 					%>
 
 					<div class="card-body">

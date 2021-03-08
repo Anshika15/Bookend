@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%
+	UserDetails user1 = (UserDetails) session.getAttribute("userD");
+	if (user1 == null) {
+		response.sendRedirect("login.jsp");
+		session.setAttribute("Login-error", "Please login first");
+	}
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,9 +30,12 @@
 
 							<%
 								UserDetails obj = (UserDetails) session.getAttribute("userD");
+								if (user != null) {
 							%>
-
 							<input type="hidden" name="uid" value="<%=obj.getId()%>">
+							<%
+								}
+							%>
 
 							<label for="exampleInputEmail1">Enter Title</label> <input
 								type="text" class="form-control" id="exampleInputEmail1"
@@ -33,7 +45,8 @@
 						<div class="form-group">
 							<label for="content">Enter Content</label>
 							<textarea rows="6" cols="" class="form-control" id="content"
-								placeholder="Enter content here" name="content" required="required"></textarea>
+								placeholder="Enter content here" name="content"
+								required="required"></textarea>
 						</div>
 						<div class="container text-center">
 							<button type="submit" class="btn btn-primary">Add Notes</button>
