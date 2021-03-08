@@ -4,9 +4,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Home</title>
+
+<%@ include file="allComp/allLinks.jsp"%>
 </head>
+
 <body>
-	<h1>Home</h1>
+	<%@ include file="allComp/navbar.jsp"%>
+	<div class="container-fluid">
+
+		<div class="card py-5">
+			<div class="card-body text-center">
+				<img alt="notes" src="img/paper.png" class="img-fluid mx-auto"
+					style="max-width:450px;">
+				<h1>Add Your Notes</h1>
+				<a href="addNotes.jsp" class="btn btn-outline-primary">Start here</a>
+			</div>
+		</div>
+	</div>
+	<%@include file="allComp/footer.jsp"%>
 </body>
 </html>

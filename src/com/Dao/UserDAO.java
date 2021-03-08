@@ -37,10 +37,9 @@ public class UserDAO {
 		
 	}
 	
-	public boolean loginUser(UserDetails obj) {
+	public UserDetails loginUser(UserDetails obj) {
 		
-		boolean flag = false;
-		
+		UserDetails user = null;
 		try {
 			String query = "select * from user where email = ? and password = ?;";
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -50,13 +49,17 @@ public class UserDAO {
 			
 			if(rs.next())
 			{
-				flag = true;
+				user = new UserDetails();
+				user.setId(rs.getInt("id"));
+				user.setName(rs.getString("name"));
+				user.setPassword("password");
+				user.setEmail("email");
 			}
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		return flag;
+		return user;
 	}
 }
