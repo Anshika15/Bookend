@@ -3,6 +3,7 @@ package com.Dao;
 import com.User.UserDetails;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class UserDAO {
 
@@ -34,5 +35,28 @@ public class UserDAO {
 		}
 		return flag;
 		
+	}
+	
+	public boolean loginUser(UserDetails obj) {
+		
+		boolean flag = false;
+		
+		try {
+			String query = "select * from user where email = ? and password = ?;";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, obj.getEmail());
+			ps.setString(2, obj.getPassword());
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next())
+			{
+				flag = true;
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return flag;
 	}
 }

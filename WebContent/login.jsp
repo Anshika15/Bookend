@@ -20,19 +20,34 @@
 						<i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
 						<h4>Login</h4>
 					</div>
+
+					<%
+						String msg = (String) session.getAttribute("login-failed");
+						if (msg != null) {
+					%>
+
+
+					<div class="alert alert-danger" role="alert"><%=msg%></div>
+
+					<%
+						}
+						session.removeAttribute("login-failed");
+					%>
+
 					<div class="card-body">
-						<form>
+						<form action="LoginServlet" method="post">
 							<div class="form-group">
-								 <input
-									type="email" class="form-control" id="exampleInputEmail1"
-									aria-describedby="emailHelp" placeholder="Enter email">
+								<input type="email" class="form-control" id="exampleInputEmail1"
+									aria-describedby="emailHelp" placeholder="Enter email"
+									name="uemail">
 							</div>
 							<div class="form-group">
-								<input
-									type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="Enter Password">
+								<input type="password" class="form-control"
+									id="exampleInputPassword1" placeholder="Enter Password"
+									name="upassword">
 							</div>
-							<button type="submit" class="btn btn-primary bagde-pill btn-block">Login</button>
+							<button type="submit"
+								class="btn btn-primary bagde-pill btn-block">Login</button>
 						</form>
 					</div>
 				</div>
