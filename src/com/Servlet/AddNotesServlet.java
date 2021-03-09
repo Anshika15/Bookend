@@ -30,6 +30,7 @@ public class AddNotesServlet extends HttpServlet {
 		boolean flag = obj.AddNotes(title, content, uid);
 		if (flag) {
 			System.out.println("data inserted succesfully");
+			response.sendRedirect("showNotes.jsp");
 		} else {
 			System.out.println("data not inserted succesfully");
 		}

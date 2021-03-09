@@ -39,7 +39,7 @@
 
 							<label for="exampleInputEmail1">Enter Title</label> <input
 								type="text" class="form-control" id="exampleInputEmail1"
-								aria-describedby="emailHelp" placeholder="Enter titile here"
+								aria-describedby="emailHelp" placeholder="Enter title here"
 								name="title" required="required">
 						</div>
 						<div class="form-group">
