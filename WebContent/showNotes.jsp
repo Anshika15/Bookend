@@ -26,11 +26,24 @@
 		String updateMsg = (String) session.getAttribute("updateMsg");
 		if (updateMsg != null) {
 	%>
- 
- 		<div class="alert alert-success" role="alert"><%=updateMsg%></div>
+
+	<div class="alert alert-success" role="alert"><%=updateMsg%></div>
 
 	<%
 		session.removeAttribute("updateMsg");
+		}
+	%>
+
+
+	<%
+		String wrongMsg = (String) session.getAttribute("wrongMsg");
+		if (wrongMsg != null) {
+	%>
+
+	<div class="alert alert-danger" role="alert"><%=wrongMsg%></div>
+
+	<%
+		session.removeAttribute("wrongMsg");
 		}
 	%>
 
@@ -58,18 +71,18 @@
 						<p><%=po.getContent()%></p>
 
 						<p>
-							<b class="text-success">Published By: <%=user3.getName()%></b></br>
-							<b class="text-primary"></b>
+							<b class="text-success">Published By: <%=user3.getName()%></b></br> <b
+								class="text-primary"></b>
 						</p>
 
 						<p>
-							<b class="text-success">Published Date: <%=po.getPdate()%></b></br>
-							<b class="text-success"></b>
+							<b class="text-success">Published Date: <%=po.getPdate()%></b></br> <b
+								class="text-success"></b>
 						</p>
 						<div class="container text-center mt-2">
-							<!-- 	<a href="DeleteServlet?note_id=" class="btn btn-danger">Delete</a> -->
-							<a href="edit.jsp?note_id=<%=po.getId()%>"
-								class="btn btn-primary">Edit</a>
+							<a href="deleteServlet?note_id=<%=po.getId()%>"
+								class="btn btn-danger">Delete</a> <a
+								href="edit.jsp?note_id=<%=po.getId()%>" class="btn btn-primary">Edit</a>
 						</div>
 
 					</div>
@@ -86,6 +99,8 @@
 			</div>
 		</div>
 	</div>
-
+	<div class="mt-5">
+		<%@include file="allComp/footer.jsp"%>
+	</div>
 </body>
 </html>

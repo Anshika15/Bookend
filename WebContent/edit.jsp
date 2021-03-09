@@ -60,6 +60,8 @@
 			</div>
 		</div>
 	</div>
+	<div class="mt-5">
 	<%@include file="allComp/footer.jsp"%>
+	</div>
 </body>
 </html>

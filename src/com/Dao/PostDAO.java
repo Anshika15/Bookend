@@ -101,5 +101,24 @@ public class PostDAO {
 		return flag;
 
 	}
+	
+	public boolean DeleteNotes(int nid) {
+		boolean flag = false;
+		try {
+			String query = "delete from post where id=?;";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setInt(1, nid);
+			int rs = ps.executeUpdate();
+			if(rs == 1)
+			{
+				flag = true;
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return flag;
+	}
 
 }

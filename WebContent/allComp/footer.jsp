@@ -1,4 +1,4 @@
-<div class="conatiner-fluid bg-dark mt-5">
+<div class="conatiner-fluid bg-dark">
 
 <p class = "text-center text-white">contact for more details.</p>
 

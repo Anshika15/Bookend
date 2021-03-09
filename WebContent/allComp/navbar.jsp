@@ -1,6 +1,6 @@
 <%@page import="com.User.UserDetails"%>
 <nav class="navbar navbar-expand-lg navbar-dark bg-custom navbar-custom">
-	<a class="navbar-brand" href="#"><i class="fa fa-book"
+	<a class="navbar-brand" href="index.jsp"><i class="fa fa-book"
 		aria-hidden="true"></i>Bookend</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarSupportedContent"
@@ -39,7 +39,7 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<h5 class="modal-title container text-center" id="exampleModalLabel">User Details</h5>
 						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
