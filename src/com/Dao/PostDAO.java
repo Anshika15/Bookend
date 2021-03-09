@@ -58,4 +58,48 @@ public class PostDAO {
 		return list;
 	}
 
+	public Post getDataById(int noteId) {
+		Post p = null;
+
+		try {
+			String query = "select * from post where id=?;";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setInt(1, noteId);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				p = new Post();
+				p.setId(rs.getInt(1));
+				p.setTitle(rs.getString(2));
+				p.setContent(rs.getString(3));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return p;
+
+	}
+
+	public boolean PostUpdate(int nid, String title, String content) {
+
+		boolean flag = false;
+		try {
+			// String query = "update post set title=?, content=? where id=?;";
+			String query = "update post set title = ?,content= ? where id = ?;";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, title);
+			ps.setString(2, content);
+			ps.setInt(3, nid);
+			int res = ps.executeUpdate();
+			if (res == 1) {
+				flag = true;
+			}
+
+		} catch (Exception e) {
+
+		}
+		return flag;
+
+	}
+
 }

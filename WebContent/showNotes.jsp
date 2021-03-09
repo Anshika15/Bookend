@@ -21,6 +21,19 @@
 </head>
 <body>
 	<%@ include file="allComp/navbar.jsp"%>
+
+	<%
+		String updateMsg = (String) session.getAttribute("updateMsg");
+		if (updateMsg != null) {
+	%>
+ 
+ 		<div class="alert alert-success" role="alert"><%=updateMsg%></div>
+
+	<%
+		session.removeAttribute("updateMsg");
+		}
+	%>
+
 	<div class="container">
 		<h2 class="text-center mt-3">
 			<b>All Notes:</b>
@@ -41,21 +54,22 @@
 
 					<div class="card-body p-4">
 
-						<h5 class="card-title"><%=po.getTitle() %></h5>
-						<p><%=po.getContent() %></p>
+						<h5 class="card-title"><%=po.getTitle()%></h5>
+						<p><%=po.getContent()%></p>
 
 						<p>
-							<b class="text-success">Published By: <%= user3.getName() %></b></br> <b
-								class="text-primary"></b>
+							<b class="text-success">Published By: <%=user3.getName()%></b></br>
+							<b class="text-primary"></b>
 						</p>
 
 						<p>
-							<b class="text-success">Published Date: <%= po.getPdate() %></b></br> <b
-								class="text-success"></b>
+							<b class="text-success">Published Date: <%=po.getPdate()%></b></br>
+							<b class="text-success"></b>
 						</p>
 						<div class="container text-center mt-2">
-					 <!-- 	<a href="DeleteServlet?note_id=" class="btn btn-danger">Delete</a>
-							<a href="edit.jsp?note_id=" class="btn btn-primary">Edit</a> -->
+							<!-- 	<a href="DeleteServlet?note_id=" class="btn btn-danger">Delete</a> -->
+							<a href="edit.jsp?note_id=<%=po.getId()%>"
+								class="btn btn-primary">Edit</a>
 						</div>
 
 					</div>
